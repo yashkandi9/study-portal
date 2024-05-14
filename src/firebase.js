@@ -10,20 +10,22 @@ import { getStorage, getDownloadURL, ref} from 'firebase/storage'
 
 // // Your web app's Firebase configuration
 // // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCtovxZnsBwuXrnEMbOLkvBjqhEdF4L_WU",
-  authDomain: "authblog-abc.firebaseapp.com",
-  projectId: "authblog-abc",
-  storageBucket: "authblog-abc.appspot.com",
-  messagingSenderId: "902485505885",
-  appId: "1:902485505885:web:d39496beecd3b15b481ab4",
-  measurementId: "G-2ZXPQT5F7N"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
-const auth = getAuth();
+const auth = getAuth(app);
 const firestore = getFirestore(app);
 const storage = getStorage(app);
 
